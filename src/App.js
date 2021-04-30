@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
+import UseStateExample from "./components/functional/UseStateExample";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+    return (
+        <main className="container p-4">
+            <Router>
+                <div className="row">
+                    <nav className="col-2">
+                        <ul>
+                            <li>
+                                <Link to="/functional/use-state">useState</Link>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div className="col-10">
+                        <Switch>
+                            <Route path="/functional/use-state"><UseStateExample /></Route>
+                        </Switch>
+                    </div>
+                </div>
+            </Router>
+        </main>
+    );
 }
-
-export default App;
