@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const UseStateExample = () => {
+export const Advance = () => {
     const [count, setCount] = useState(0);
     const [text, setText] = useState('');
 
@@ -11,7 +11,7 @@ const UseStateExample = () => {
                     resolve('33333')
                 }, 2000);
             }
-            else { reject('err') }
+            // else { reject('err') }
         })
 
         setText(prevState => {
@@ -35,5 +35,3 @@ const UseStateExample = () => {
         </div>
     )
 }
-
-export default UseStateExample

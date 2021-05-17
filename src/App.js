@@ -6,25 +6,37 @@ import {
     Link
 } from "react-router-dom";
 import SetStateExample from './components/class/SetStateExample';
-import UseStateExample from "./components/functional/UseStateExample";
-import UseEffectExample from "./components/functional/UseEffectExample";
+import Clock from './components/class/Clock';
+import * as UseEffectExamples from './components/functional/UseEffectExamples';
+import * as UseStateExamples from './components/functional/UseStateExamples';
+import * as UseCustomHookExamples from './components/functional/UseCustomHookExamples';
+import * as UseContextExamples from './components/functional/UseContextExamples';
+import * as UseReducerExamples from './components/functional/UseReducerExamples';
 
 const classLinks = [
     { to: '/class/set-state', label: 'setState' },
+    { to: '/class/clock', label: 'Clock' },
 ]
 
 const functionalLinks = [
     { to: '/functional/use-state', label: 'useState' },
     { to: '/functional/use-effect', label: 'useEffect' },
+    { to: '/functional/use-custom-hook', label: 'useCustomHook' },
+    { to: '/functional/use-context', label: 'useContext' },
+    { to: '/functional/use-reducer', label: 'useReducer' },
 ]
 
 const classRoutes = [
     { path: '/class/set-state', component: SetStateExample },
+    { path: '/class/clock', component: Clock },
 ]
 
 const functionalRoutes = [
-    { path: '/functional/use-state', component: UseStateExample },
-    { path: '/functional/use-effect', component: UseEffectExample },
+    { path: '/functional/use-state', component: UseStateExamples.Basics },
+    { path: '/functional/use-effect', component: UseEffectExamples.Basics },
+    { path: '/functional/use-custom-hook', component: UseCustomHookExamples.FetchData },
+    { path: '/functional/use-context', component: UseContextExamples.SimpleUseContext },
+    { path: '/functional/use-reducer', component: UseReducerExamples.Simple },
 ]
 
 export default function App() {
@@ -57,15 +69,15 @@ export default function App() {
                     <div className="col-8">
                         <Switch>
                             {classRoutes.map(route => (
-                                <Route path={route.path}><route.component /></Route>
+                                <Route key={route.path} path={route.path}><route.component /></Route>
                             ))}
                             {functionalRoutes.map(route => (
-                                <Route path={route.path}><route.component /></Route>
+                                <Route key={route.path} path={route.path}><route.component /></Route>
                             ))}
                         </Switch>
                     </div>
                 </div>
             </Router>
-        </main>
+        </main >
     );
 }
