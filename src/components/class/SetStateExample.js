@@ -10,15 +10,21 @@ class SetStateExample extends Component {
     }
 
     incrementAge() {
-        this.setState({
-            age: this.state.age + 1
-        });
+        setTimeout(() => {
+            this.setState((state, props) => {
+                console.log(state, props)
+                return {
+                    age: this.state.age + 1
+                };
+            });
+        }, 1000);
     }
 
     render() {
         return (
             <div>
                 <label>My age is: {this.state.age}</label>
+                <br />
                 <button onClick={this.incrementAge}>Grow me older !!</button>
             </div>
         );

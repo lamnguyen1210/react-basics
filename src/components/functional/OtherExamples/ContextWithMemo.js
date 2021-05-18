@@ -2,6 +2,10 @@ import React, { useContext, useState } from 'react'
 
 const ThemeContext = React.createContext();
 
+// It’s not a Hook because it doesn’t compose like Hooks do. React.memo is equivalent to PureComponent, 
+// but it only compares props. (You can also add a second argument to specify a custom comparison function that 
+// takes the old and new props. If it returns true, the update is skipped.)
+
 const areEqual = (prevProps, nextProps) => {
     console.log({ prevProps, nextProps });
     /*
@@ -17,12 +21,19 @@ const areEqual = (prevProps, nextProps) => {
 }
 
 const ThemedButton = React.memo(({ count }) => {
+    const [myText, setMyText] = useState('');
+
     console.log('count', count)
+    console.log('myText', myText)
     const theme = useContext(ThemeContext);
     return (
-        <button style={{ background: theme.background, color: theme.foreground }}>
-            I am styled by theme context!
-        </button>
+        <>
+            <button style={{ background: theme.background, color: theme.foreground }}>
+                I am styled by theme context!
+            </button>
+            <p>My Text: {myText}</p>
+            <button onClick={() => setMyText(myText + 'a')}>set my text</button>
+        </>
     );
 }, areEqual)
 
