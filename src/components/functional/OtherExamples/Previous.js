@@ -1,26 +1,22 @@
 import React, { useState, useRef, useEffect } from 'react';
 
-// const usePrevious = (value) => {
-//     const ref = useRef();
+const usePrevious = (value) => {
+    const ref = useRef();
 
-//     useEffect(() => {
-//         ref.current = value
-//     });
+    useEffect(() => {
+        ref.current = value
+    });
 
-//     return ref.current;
-// }
+    return ref.current;
+}
 
 export const Previous = () => {
     const [count, setCount] = useState(0);
-    const prevCount = useRef();
-
-    useEffect(() => {
-        prevCount.current = count;
-    })
+    const prevCount = usePrevious(count);
 
     return (
         <div>
-            <p>Now: {count}, before: {prevCount.current}</p>
+            <p>Now: {count}, before: {prevCount}</p>
             <button onClick={() => setCount(count + 1)}>Increase</button>
         </div>
     )

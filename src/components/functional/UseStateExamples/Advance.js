@@ -8,6 +8,7 @@ export const Advance = () => {
 
         setTimeout(() => {
             setText(prevState => {
+                console.log('prevState', prevState)
                 return prevState.replace('first fetch loading...', '');
             })
 

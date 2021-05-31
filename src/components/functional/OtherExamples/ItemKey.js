@@ -44,11 +44,10 @@ export const ItemKey = () => {
             <form>
                 {list.map((todo, index) =>
                     <Item {...todo}
-                        key={index} />
+                        key={index}
+                    />
                 )}
             </form>
-
-
             <h3>Better <code>key=id</code></h3>
             <form>
                 {list.map((todo) =>

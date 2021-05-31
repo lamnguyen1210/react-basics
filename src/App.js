@@ -5,8 +5,8 @@ import {
     Route,
     Link
 } from "react-router-dom";
-import SetStateExample from './components/class/SetStateExample';
-import Clock from './components/class/Clock';
+import Example from './components/class/Example';
+// import Clock from './components/class/Clock';
 import * as UseEffectExamples from './components/functional/UseEffectExamples';
 import * as UseStateExamples from './components/functional/UseStateExamples';
 import * as UseCustomHookExamples from './components/functional/UseCustomHookExamples';
@@ -19,8 +19,8 @@ import * as AdvanceExamples from './components/functional/OtherExamples';
 import * as WithRedux from './components/with-redux';
 
 const classLinks = [
-    { to: '/class/set-state', label: 'setState' },
-    { to: '/class/clock', label: 'Clock' },
+    { to: '/class/example', label: 'Example' },
+    // { to: '/class/clock', label: 'Clock' },
 ]
 
 const functionalLinks = [
@@ -40,12 +40,12 @@ const reduxLinks = [
 ]
 
 const classRoutes = [
-    { path: '/class/set-state', component: SetStateExample },
-    { path: '/class/clock', component: Clock },
+    { path: '/class/example', component: Example },
+    // { path: '/class/clock', component: Clock },
 ]
 
 const functionalRoutes = [
-    { path: '/functional/use-state', component: UseStateExamples.Counter },
+    { path: '/functional/use-state', component: UseStateExamples.Advance },
     { path: '/functional/use-effect', component: UseEffectExamples.Basics },
     { path: '/functional/use-custom-hook', component: UseCustomHookExamples.FetchData },
     { path: '/functional/use-context', component: UseContextExamples.SimpleUseContext },
@@ -57,7 +57,7 @@ const functionalRoutes = [
 ]
 
 const reduxRoutes = [
-    { path: '/redux/class-uses-connect', component: WithRedux.ClassUsesConnect },
+    { path: '/redux/class-uses-connect', component: WithRedux.FunctionUsesHooks },
 ]
 
 export default function App() {
